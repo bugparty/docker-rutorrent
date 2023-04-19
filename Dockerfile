@@ -51,7 +51,7 @@ RUN \
  if [ -z ${RUTORRENT_RELEASE+x} ]; then \
 	RUTORRENT_RELEASE=$(curl -sX GET "https://api.github.com/repos/Novik/ruTorrent/releases/latest" \
 	| awk '/tag_name/{print $4;exit}' FS='[""]'); \
- fi && \
+ fi && echo "rutorrent version is ${RUTORRENT_RELEASE}" &&\
  curl -o \
  /tmp/rutorrent.tar.gz -L \
 	"https://github.com/Novik/rutorrent/archive/${RUTORRENT_RELEASE}.tar.gz" && \
